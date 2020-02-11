@@ -1,4 +1,4 @@
-FROM rust:latest
+FROM rust:stable
 RUN apt update && apt install -y \
     jupyter-notebook \
     cmake && rm -rf /var/lib/apt/lists/*
