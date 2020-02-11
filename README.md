@@ -18,3 +18,8 @@ Just pull the docker image from the Docker hub:
 `docker run --rm -p 8888:8888 sylwekrapala/jupiter-rust`
 
 And go to `http://localhost:8888` (in the console log you will get a token to log).
+
+### Don't lose your work
+`docker run -v $(pwd)/notebooks:/notebooks -p 8888:8888 sylwekrapala/jupiter-rust`
+
+The disadvantage of this is that files in `notebooks` would be owned by root.
