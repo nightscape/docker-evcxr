@@ -1,14 +1,11 @@
 FROM rust:latest
-COPY config /config
-COPY scripts /scripts
-RUN chmod +x scripts/*
-WORKDIR /scripts
-CMD ./start_jupyter.sh
-RUN useradd -m rust
 RUN apt update && apt install -y \
     jupyter-notebook \
-    cmake
-RUN cargo install evcxr_jupyter
-USER 1000:1000
-RUN evcxr_jupyter --install
+    cmake && rm -rf /var/lib/apt/lists/*
+RUN cargo install evcxr_jupyter && evcxr_jupyter --install && rm -rf /usr/local/cargo/registry
+
+COPY notebooks /notebooks
+COPY config /config
+ENTRYPOINT ["/usr/bin/jupyter", "notebook", "--config=/config/jupyter/jupyter_notebook_config.py", "--allow-root"]
+
 
