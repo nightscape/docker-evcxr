@@ -1,4 +1,5 @@
 FROM sylwekrapala/rust-ubuntu:1-bionic
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y \
     jupyter-notebook \
     cmake && rm -rf /var/lib/apt/lists/*
