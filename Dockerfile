@@ -1,4 +1,4 @@
-FROM sylwekrapala/rust-ubuntu:1-bionic
+FROM sylwekrapala/rust-ubuntu:1-eoan
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y \
     jupyter-notebook \
