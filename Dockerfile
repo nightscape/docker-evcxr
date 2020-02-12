@@ -1,4 +1,4 @@
-FROM rust:1
+FROM sylwekrapala/rust-ubuntu:1-bionic
 RUN apt update && apt install -y \
     jupyter-notebook \
     cmake && rm -rf /var/lib/apt/lists/*
